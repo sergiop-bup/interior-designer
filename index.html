@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор интерьера квартиры</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="app-title">Конструктор интерьера</div>
+            <div class="top-controls">
+                <button class="control-btn" id="toggle-tools">
+                    <i class="fas fa-tools"></i> Инструменты
+                </button>
+                <button class="control-btn" id="toggle-properties">
+                    <i class="fas fa-sliders-h"></i> Свойства
+                </button>
+                <button class="control-btn" id="toggle-instructions">
+                    <i class="fas fa-question-circle"></i> Помощь
+                </button>
+                <button class="control-btn" id="save-project">
+                    <i class="fas fa-save"></i> Сохранить
+                </button>
+                <button class="control-btn" id="download-plan">
+                    <i class="fas fa-download"></i> Скачать
+                </button>
+                <button class="control-btn btn-clear" id="clear-all">
+                    <i class="fas fa-broom"></i> Очистить всё
+                </button>
+                <button class="control-btn btn-restore" id="restore-deleted">
+                    <i class="fas fa-history"></i> Восстановить
+                </button>
+                <button class="control-btn btn-group" id="group-elements">
+                    <i class="fas fa-object-group"></i> Группировать
+                </button>
+                <button class="control-btn btn-ungroup" id="ungroup-elements">
+                    <i class="fas fa-object-ungroup"></i> Разгруппировать
+                </button>
+            </div>
+        </div>
+
+        <div class="app-container">
+            <div class="tools-panel" id="tools-panel">
+                <h2 class="panel-title">
+                    Панель инструментов
+                    <button class="close-panel">&times;</button>
+                </h2>
+                
+                <div class="tool-category">
+                    <h3>Основные элементы</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item" data-type="wall" data-tooltip="Добавить стену">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396455.png" alt="Стена">
+                            <span>Стена</span>
+                        </div>
+                        <div class="tool-item" data-type="door" data-tooltip="Добавить дверь">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396464.png" alt="Дверь">
+                            <span>Дверь</span>
+                        </div>
+                        <div class="tool-item" data-type="window" data-tooltip="Добавить окно">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396462.png" alt="Окно">
+                            <span>Окно</span>
+                        </div>
+                        <div class="tool-item active" data-type="room" data-tooltip="Добавить комнату">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396458.png" alt="Комната">
+                            <span>Комната</span>
+                        </div>
+                        <div class="tool-item" data-type="room-label" data-tooltip="Добавить название комнаты">
+                            <img src="https://cdn-icons-png.flaticon.com/512/447/447031.png" alt="Название">
+                            <span>Название</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h3>Мебель для гостиной</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item" data-type="sofa" data-tooltip="Диван">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396466.png" alt="Диван">
+                            <span>Диван</span>
+                        </div>
+                        <div class="tool-item" data-type="table" data-tooltip="Стол">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396470.png" alt="Стол">
+                            <span>Стол</span>
+                        </div>
+                        <div class="tool-item" data-type="tv" data-tooltip="Телевизор">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396471.png" alt="Телевизор">
+                            <span>Телевизор</span>
+                        </div>
+                        <div class="tool-item" data-type="armchair" data-tooltip="Кресло">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396467.png" alt="Кресло">
+                            <span>Кресло</span>
+                        </div>
+                        <div class="tool-item" data-type="bookshelf" data-tooltip="Книжный шкаф">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396473.png" alt="Книжный шкаф">
+                            <span>Книжный шкаф</span>
+                        </div>
+                        <div class="tool-item" data-type="rug" data-tooltip="Ковер">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396479.png" alt="Ковер">
+                            <span>Ковер</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h3>Мебель для спальни</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item" data-type="bed" data-tooltip="Кровать">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396477.png" alt="Кровать">
+                            <span>Кровать</span>
+                        </div>
+                        <div class="tool-item" data-type="wardrobe" data-tooltip="Шкаф">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396474.png" alt="Шкаф">
+                            <span>Шкаф</span>
+                        </div>
+                        <div class="tool-item" data-type="dresser" data-tooltip="Комод">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396475.png" alt="Комод">
+                            <span>Комод</span>
+                        </div>
+                        <div class="tool-item" data-type="mirror" data-tooltip="Зеркало">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396481.png" alt="Зеркало">
+                            <span>Зеркало</span>
+                        </div>
+                        <div class="tool-item" data-type="nightstand" data-tooltip="Тумбочка">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396476.png" alt="Тумбочка">
+                            <span>Тумбочка</span>
+                        </div>
+                        <div class="tool-item" data-type="lamp" data-tooltip="Лампа">
+                            <img src="https://w7.pngwing.com/pngs/939/433/png-transparent-computer-icons-hotel-villa-mtiebi-others-miscellaneous-light-fixture-angle.png" alt="Лампа">
+                            <span>Лампа</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h3>Кухонная мебель</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item" data-type="fridge" data-tooltip="Холодильник">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396469.png" alt="Холодильник">
+                            <span>Холодильник</span>
+                        </div>
+                        <div class="tool-item" data-type="oven" data-tooltip="Плита">
+                            <img src="極力推奨/14396/14396468.png" alt="Плита">
+                            <span>Плита</span>
+                        </div>
+                        <div class="tool-item" data-type="sink" data-tooltip="Раковина">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396472.png" alt="Раковина">
+                            <span>Раковина</span>
+                        </div>
+                        <div class="tool-item" data-type="cabinet" data-tooltip="Шкафчик">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396483.png" alt="Шкафчик">
+                            <span>Шкафчик</span>
+                        </div>
+                        <div class="tool-item" data-type="dishwasher" data-tooltip="Посудомоечная машина">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396478.png" alt="Посудомоечная машина">
+                            <span>Посуда</span>
+                        </div>
+                        <div class="tool-item" data-type="table-kitchen" data-tooltip="Обеденный стол">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396470.png" alt="Обеденный стол">
+                            <span>Обеденный стол</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h3>Ванная комната</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item" data-type="bathtub" data-tooltip="Ванна">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396482.png"alt="Ванна">
+                            <span>Ванна>
+                        </div>
+                        <div class="tool-item" data-type="shower" data-tooltip="Душ">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396484.png" alt="Душ">
+                            <span>Душ</span>
+                        </div>
+                        <div class="tool-item" data-type="toilet" data-tooltip="Унитаз">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396485.png" alt="Унитаз">
+                            <span>Унитаз</span>
+                        </div>
+                        <div class="tool-item" data-type="sink-bathroom" data-tooltip="Раковина">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396472.png" alt="Раковина">
+                            <span>Раковина</span>
+                        </div>
+                        <div class="tool-item" data-type="cabinet-bathroom" data-tooltip="Шкафчик для ванной">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396483.png" alt="Шкафчик">
+                            <span>Шкафчик</span>
+                        </div>
+                        <div class="tool-item" data-type="mirror-bathroom" data-tooltip="Зеркало в ванной">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396481.png" alt="Зеркало">
+                            <span>Зеркало</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h3>Дополнительные элементы</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item" data-type="plant" data-tooltip="Растение">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396486.png" alt="Растение">
+                            <span>Растение</span>
+                        </div>
+                        <div class="tool-item" data-type="lamp-floor" data-tooltip="Торшер">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396487.png" alt="Торшер">
+                            <span>Торшер</span>
+                        </div>
+                        <div class="tool-item" data-type="chair" data-tooltip="Стул">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396488.png" alt="Стул">
+                            <span>Стул</span>
+                        </div>
+                        <div class="tool-item" data-type="desk" data-tooltip="Письменный стол">
+                            <img src="https://avatars.mds.yandex.net/i?id=b0e79ebd3a963001c4a645f8423ea09a_l-5332191-images-thumbs&n=13" alt="Писменный стол">
+                            <span>Письменный стол</span>
+                        </div>
+                        <div class="tool-item" data-type="washing-machine" data-tooltip="Стиральная машина">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396490.png" alt="Стиральная машина">
+                            <span>Стиральная машина</span>
+                        </div>
+                        <div class="tool-item" data-type="heater" data-tooltip="Обогреватель">
+                            <img src="https://cdn-icons-png.flaticon.com/512/14396/14396491.png" alt="Обогреватель">
+                            <span>Обогреватель</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="design-canvas"></canvas>
+            </div>
+            
+            <div class="properties-panel" id="properties-panel">
+                <h2 class="panel-title">
+                    Свойства элемента
+                    <button class="close-panel">&times;</button>
+                </h2>
+                
+                <div class="property-group">
+                    <label for="element-name">Название элемента</label>
+                    <input type="text" id="element-name" placeholder="Введите название">
+                </div>
+                
+                <div class="property-group">
+                    <label for="element-width">Ширина (м)</label>
+                    <input type="number" id="element-width" min="0.1" step="0.1" value="3.0">
+                </div>
+                
+                <div class="property-group">
+                    <label for="element-height">Высота (м)</label>
+                    <input type="number" id="element-height" min="0.1" step="0.1" value="2.5">
+                </div>
+                
+                <div class="property-group">
+                    <label for="data-flor">Цвет</label>
+                    <input type="color" id="element-color" value="#3498db">
+                </div>
+                
+                <div class="property-group">
+                    <label for="element-rotation">Поворот (°)</label>
+                    <input type="number" id="element-rotation" min="0" max="360" step="1" value="0">
+                </div>
+                
+                <div class="property-group" id="room-type-group">
+                    <label for="room-type">Тип комнаты</label>
+                    <select id="room-type">
+                        <option value="living-room">Гостиная</option>
+                        <option value="bedroom">Спальня</option>
+                        <option value="kitchen">Кухня</option>
+                        <option value="bathroom">Ванная</option>
+                        <option value="hallway">Прихожая</option>
+                        <option value="kids">Детская</option>
+                        <option value="office">Кабинет</option>
+                    </select>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="apply-properties">
+                        <i class="fas fa-check"></i>
+                        Применить
+                    </button>
+                    <button class="btn btn-secondary" id="delete-element">
+                        <i class="fas fa-trash"></i>
+                        Удалить
+                    </button>
+                </div>
+            </div>
+            
+            <div class="instructions-panel" id="instructions-panel">
+                <h2 class="panel-title">
+                    Как пользоваться конструктором
+                    <button class="close-panel">&times;</button>
+                </h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Создайте план квартиры</h3>
+                            <p>Используйте инструменты "Стена", "Дверь" и "Окно" для создания контура вашей квартиры. Выделите комнаты с помощью инструмента "Комната".</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Добавьте мебель</h3>
+                            <p>Перетащите мебель из панели инструментов в нужную комнату. Используйте панель свойств для изменения размеров и цвета элементов.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Добавьте названия комнат</h3>
+                            <p>Используйте инструмент "Название", чтобы добавить подписи к комнатам. Вы можете перемещать их и редактировать текст.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Группировка объектов</h3>
+                                <p>Выделите несколько объектов (удерживая Ctrl) и нажмите "Группировать" для объединения. Группу можно перемещать целиком.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Навигация по плану</h3>
+                            <p>Перемещайтесь по плану с помощью правой кнопки мыши. Масштабируйте колесиком мыши или с помощью Ctrl+колесико.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>Сохраните и скачайте проект</h3>
+                            <p>Сохраните проект для дальнейшего редактирования или скачайте готовый план в формате JSON.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Конструктор интерьера квартиры &copy; 2023. Все права защищены.</p>
+            <p>Используйте правую кнопку мыши для перемещения, колесико для масштабирования</p>
+            <p>Для множественного выделения удерживайте Ctrl при клике</p>
+            <p>Мебель можно перемещать только в пределах комнаты</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
